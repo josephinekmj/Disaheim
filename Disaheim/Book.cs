@@ -6,46 +6,29 @@ using System.Threading.Tasks;
 
 namespace Disaheim
 {
-    public class Book
+    public class Book : Merchandise //her ses at Book nedarver fra Merchandise 
     {
-
-        // de private attributter, som også er backing field
-        private string _itemId;
         private string _title;
         private double _price;
 
-        // konstruktør der tager itemId som argument 
-        public Book(string itemId)
+        public Book(string itemId) : base(itemId) //base keyword kalder på baseklassen Merchandise ItemId da Book klassen nedarver ItemId fra Merchandiae 
         {
-            _itemId = itemId;
-        }
+        }//tom fordi den bruger constructor fra merchandise klassen
 
-        // konstruktør der tager price og itemId til argument
-        public Book(string itemId, string title)
+        public Book(string itemId, string title) : base(itemId)
         {
-            _itemId = itemId;
             _title = title;
-        }
+        } //henter itemId fra merchandise klassen, nedarvning
 
-        // konstruktør der tager itemId, title og price som argument 
-        public Book(string itemId, string title, double price)
+        public Book(string itemId, string title, double price) : base(itemId)
         {
-            _itemId = itemId;
             _title = title;
             _price = price;
-        }
+        } //henter itemId fra merchandise 
 
-        // ToString metode udskriver værdierne ved at have fast steng med interpolation hvor attributterne indsættes i klammerne
         public override string ToString()
         {
-            return $"ItemId: {_itemId}, Title: {_title}, Price: {_price}";
-        }
-
-        // Properties der bruger de private backing field attributter 
-        public string ItemId
-        {
-            get { return _itemId; }
-            set { _itemId = value; }
+            return $"ItemId: {ItemId}, Title: {_title}, Price: {_price}";
         }
 
         public string Title
@@ -61,3 +44,4 @@ namespace Disaheim
         }
     }
 }
+

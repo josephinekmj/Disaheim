@@ -24,46 +24,30 @@ namespace Disaheim
 //  Denne navnekonvention benyttes fremover i alle kommende opgaver med mindre andet nævnes.
 
 
-    public class Amulet
+    public class Amulet : Merchandise
     {
-        // de private attributter, som også er backing field
-        private string _itemId;
         private string _design;
         private Level _quality;
 
-        // constructorer der bruger itemId som argument
-        public Amulet(string itemId)
+        public Amulet(string itemId) : base(itemId)
         {
-            _itemId = itemId;
-            _quality = Level.medium; // forstår ikke hvorfor, men her skal åpbenbart være denne værdi for at testen med det ene parameter passere. 
+            _quality = Level.medium;
         }
 
-        // constructor der bruger argumenterne  itemId og quality
-        public Amulet(string itemId, Level quality)
+        public Amulet(string itemId, Level quality) : base(itemId)
         {
-            _itemId = itemId;
             _quality = quality;
         }
 
-        // constructor der også bruger design som argument
-        public Amulet(string itemId, Level quality, string design)
+        public Amulet(string itemId, Level quality, string design) : base(itemId)
         {
-            _itemId = itemId;
             _quality = quality;
             _design = design;
         }
 
-        // ToString metode udskriver værdierne ved at have fast steng med interpolation hvor attributterne indsættes i klammerne
         public override string ToString()
         {
-            return $"ItemId: {_itemId}, Quality: {_quality}, Design: {_design}";
-        }
-
-        // Properties
-        public string ItemId
-        {
-            get { return _itemId; }
-            set { _itemId = value; }
+            return $"ItemId: {ItemId}, Quality: {_quality}, Design: {_design}";
         }
 
         public string Design
@@ -75,8 +59,7 @@ namespace Disaheim
         public Level Quality
         {
             get { return _quality; }
-            set { _quality = value; } 
+            set { _quality = value; }
         }
     }
 }
-

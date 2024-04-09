@@ -9,9 +9,9 @@ namespace Disaheim
     public class Controller
     {
         //her gøres listerne tilgængelig udenfor klassen via property
-        public List<Book> Books { get; private set; }
+        public List<Book> Books;
 
-        public List<Amulet> Amulets { get; private set; }
+        public List<Amulet> Amulets;
 
         public Controller()
         {
